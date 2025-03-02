@@ -95,13 +95,11 @@ export const TextLabeling: React.FC<TextLabelingProps> = ({
       const selectedSpan = range.startContainer.parentElement;
       const startSelectedIndex = range.startOffset;
       const endSelectedIndex = range.endOffset;
-      console.log(startSelectedIndex, endSelectedIndex);
       if (selectedSpan) {
         let totalLength = calculateTotalLength(selectedSpan);
         const start = totalLength + startSelectedIndex;
         if (startSelectedIndex > endSelectedIndex) totalLength = 0;
         const end = totalLength + endSelectedIndex;
-        console.log(checkOverlap(labeling, start, end), start, end);
         if (!checkOverlap(labeling, start, end)) {
           const newLabeling = createNewLabeling(labeling, start, end, selectedLabel.label);
           onChange(newLabeling);

@@ -15,4 +15,5 @@ export default defineConfig({
             generateScopedName: '[path][name]__[local]--[hash:base64:5]',
         },
     },
+    base: '/select_text/', // Добавьте эту строку
 });
