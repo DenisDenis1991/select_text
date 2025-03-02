@@ -17,6 +17,7 @@ const calculateTotalLength = (selectedSpan: Element): number => {
 const checkOverlap = (labeling: TextLabel[], start: number, end: number): boolean => {
   return labeling.some(
     (label) =>
+      (start>end) ||
       (start >= label.start && start < label.end) ||
       (end > label.start && end <= label.end) ||
       (start <= label.start && end >= label.end)
@@ -94,12 +95,13 @@ export const TextLabeling: React.FC<TextLabelingProps> = ({
       const selectedSpan = range.startContainer.parentElement;
       const startSelectedIndex = range.startOffset;
       const endSelectedIndex = range.endOffset;
+      console.log(startSelectedIndex, endSelectedIndex);
       if (selectedSpan) {
         let totalLength = calculateTotalLength(selectedSpan);
         const start = totalLength + startSelectedIndex;
         if (startSelectedIndex > endSelectedIndex) totalLength = 0;
         const end = totalLength + endSelectedIndex;
-
+        console.log(checkOverlap(labeling, start, end), start, end);
         if (!checkOverlap(labeling, start, end)) {
           const newLabeling = createNewLabeling(labeling, start, end, selectedLabel.label);
           onChange(newLabeling);
