@@ -1,0 +1,47 @@
+.card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  // &__btn {
+  //   width: 100%;
+  //   min-width: 100px;
+  // }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    text-align: left;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 15px;
+      position: absolute;
+      height: 15px;
+      z-index: 9999;
+      left: 10px;
+    }
+
+    &.select__title_red::before {
+      background-color: var(--red);
+    }
+
+    &.select__title_green::before {
+      background-color: var(--green);
+    }
+
+    &.select__title_blue::before {
+      background-color: var(--blue);
+    }
+  }
+}
+

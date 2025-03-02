@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/index.ts","./src/components/card/card.tsx","./src/components/textlabeling/textlabeling.tsx","./src/shared/const/index.ts","./src/shared/types/index.ts"],"version":"5.7.3"}
