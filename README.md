@@ -1,5 +1,5 @@
 ## Getting Started
-
+"/node": "^20.12.12",
 ### Installation
 
 1. Clone the repository:
